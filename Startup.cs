@@ -5,9 +5,17 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+// using MySql.Data.MySqlClient;
+// using MySql.EntityFrameworkCore;
+using MySQL.Data.EntityFrameworkCore;
+// using Pomelo.EntityFrameworkCore.MySql;
+
+
+
 
 namespace Manager
 {
@@ -23,7 +31,15 @@ namespace Manager
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            //services.AddControllersWithViews();
+            
+            string mySqlConnectionStr = Configuration.GetConnectionString("DefaultConnection");
+            // services.AddDbContextPool<HoangDBContext>(options => 
+            // options.UseMySql(mySqlConnectionStr, ServerVersion.AutoDetect(mySqlConnectionStr)));
+            // services.AddControllers();
+
+
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
