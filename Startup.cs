@@ -9,13 +9,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-// using MySql.Data.MySqlClient;
-// using MySql.EntityFrameworkCore;
-using MySQL.Data.EntityFrameworkCore;
-// using Pomelo.EntityFrameworkCore.MySql;
-
-
-
+using Manager.DBContext.Repository;
+using Manager.Data;
+using Manager.DBContext;
 
 namespace Manager
 {
@@ -34,12 +30,11 @@ namespace Manager
             //services.AddControllersWithViews();
             
             string mySqlConnectionStr = Configuration.GetConnectionString("DefaultConnection");
-            // services.AddDbContextPool<HoangDBContext>(options => 
-            // options.UseMySql(mySqlConnectionStr, ServerVersion.AutoDetect(mySqlConnectionStr)));
-            // services.AddControllers();
+            services.AddDbContextPool<MyDataDbContext>(options => 
+            options.UseMySql(mySqlConnectionStr, ServerVersion.AutoDetect(mySqlConnectionStr)));
+            services.AddControllers();
 
-
-            
+                     
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
