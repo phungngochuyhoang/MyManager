@@ -18,6 +18,7 @@ namespace Manager.Controllers
 
         public IActionResult Index()
         {
+            var name = "";
             return View();
         }
 
