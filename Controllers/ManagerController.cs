@@ -6,19 +6,22 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Manager.Models;
+using Manager.Data;
+using Manager.Service;
 
 
 namespace Manager.Controllers
 {
     public class ManagerController: Controller {
 
-        public ManagerController() {
-           
+         private readonly IAccountService _accountService;
+        public ManagerController(IAccountService accountService) {
+           _accountService = accountService;
         }
 
         public IActionResult Index()
         {
-            var name = "";
+        
             return View();
         }
 

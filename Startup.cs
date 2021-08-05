@@ -12,7 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Manager.DBContext.Repository;
 using Manager.Data;
 using Manager.DBContext;
-
+using Manager.Service;
 namespace Manager
 {
     public class Startup
@@ -27,14 +27,18 @@ namespace Manager
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddControllersWithViews();
-            
-            string mySqlConnectionStr = Configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContextPool<MyDataDbContext>(options => 
-            options.UseMySql(mySqlConnectionStr, ServerVersion.AutoDetect(mySqlConnectionStr)));
-            services.AddControllers();
 
-                     
+
+            string mySqlConnectionStr = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContextPool<MyDataDbContext>(options =>
+            options.UseMySql(mySqlConnectionStr, ServerVersion.AutoDetect(mySqlConnectionStr)));
+
+            services.AddTransient(typeof(IBaseService<>), typeof(BaseService<>));
+            services.AddTransient(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
+
+            services.AddTransient<IAccountService, AccountService>();
+
+            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,7 +65,7 @@ namespace Manager
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Manager}/{action=Index}/{id?}");
             });
         }
     }

@@ -1,15 +1,16 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System;
+using System.Linq.Expressions;
 using Manager.Data;
 
-namespace Manager.DBContext.Repository
+namespace Manager.Service
 {
-    public interface IRepositoryBase<T> where T : IBaseEntity
+    public interface IBaseService<T> where T : IBaseEntity
     {
         T GetById(object id);
 
         void Insert(T entity);
     }
-
+    
 }

@@ -20,6 +20,11 @@ namespace Manager.DBContext.Repository
         {
             return _entities.Find(id);
         }
+
+        public void Insert(T entity) 
+        {
+            _entities.Add(entity); 
+        }
     }
 
 }
