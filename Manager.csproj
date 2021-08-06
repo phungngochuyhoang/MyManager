@@ -5,8 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <!-- <PackageReference Include="DotNetBrowser" Version="2.7.0" /> -->
     <PackageReference Include="EntityFramework" Version="6.4.4" />
-    <!-- <PackageReference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform" Version="3.6.0" /> -->
+    <PackageReference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform" Version="3.6.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.8">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>

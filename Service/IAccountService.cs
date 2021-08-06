@@ -9,7 +9,6 @@ namespace Manager.Service
 {
     public interface IAccountService : IBaseService<AccountEntity>   {
 
-        void Log();
 
 
     }

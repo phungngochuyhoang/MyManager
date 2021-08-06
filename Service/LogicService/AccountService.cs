@@ -14,11 +14,6 @@ namespace Manager.Service
             _accountRepo = accountRepo;
         }
 
-         public void Log() {
-            Console.WriteLine("Log");
-            Console.ReadKey();
-        }
-
     }
     
 }

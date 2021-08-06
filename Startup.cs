@@ -39,6 +39,7 @@ namespace Manager
             services.AddTransient<IAccountService, AccountService>();
 
             services.AddControllersWithViews();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,6 +61,7 @@ namespace Manager
             app.UseRouting();
 
             app.UseAuthorization();
+            
 
             app.UseEndpoints(endpoints =>
             {

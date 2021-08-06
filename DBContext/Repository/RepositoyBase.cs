@@ -24,6 +24,7 @@ namespace Manager.DBContext.Repository
         public void Insert(T entity) 
         {
             _entities.Add(entity); 
+            _context.SaveChanges();
         }
     }
 
